@@ -1,0 +1,29 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
+apply plugin: 'com.ewerk.gradle.plugins.querydsl'
+
+dependencies {
+    implementation 'com.querydsl:querydsl-jpa'
+
+    runtimeOnly 'com.h2database:h2'
+}
+
+def querydslDir = "$buildDir/generated/querydsl" // QueryDSL 에서 필요한 QClass 가 생성되는 경로
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}

@@ -1,0 +1,7 @@
+insert into member (name, age) values ('lavine', 26)
+insert into member (name, age) values ('pobi', 50)
+insert into member (name, age) values ('json', 29)
+insert into member (name, age) values ('brown', 33)
+insert into member (name, age) values ('jun', 31)
+insert into member (name, age) values ('cu', 35)
+insert into member (name, age) values ('woni', 30)

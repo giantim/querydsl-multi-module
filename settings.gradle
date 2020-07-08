@@ -1,0 +1,4 @@
+rootProject.name = 'querydsl'
+include 'querydsl-admin'
+include 'querydsl-core'
+
