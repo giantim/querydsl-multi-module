@@ -7,5 +7,7 @@ import java.util.List;
 public interface MemberRepositoryCustom {
     Member findByName(String name);
 
-    List<MemberDto> findMembersByAgeOver(int age);
+    List<MemberDto> findMembersOverAge(int age);
+
+    List<MemberDto> findMembersOverAgeAndContainWord(int age, String word);
 }

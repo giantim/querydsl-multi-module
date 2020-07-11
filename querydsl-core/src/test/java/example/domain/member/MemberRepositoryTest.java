@@ -30,8 +30,19 @@ public class MemberRepositoryTest {
 
     @Test
     void findMembersByAgeOverTest() {
-        List<MemberDto> members = memberRepository.findMembersByAgeOver(30);
+        List<MemberDto> members = memberRepository.findMembersOverAge(30);
 
         assertThat(members.size()).isEqualTo(5);
+    }
+
+    @Test
+    void findMembersOverAgeAndContainWordTest() {
+        List<MemberDto> members = memberRepository.findMembersOverAgeAndContainWord(15, "o");
+
+        members.forEach(member -> {
+            System.out.println("------------");
+            System.out.println("name: " + member.getName());
+            System.out.println(String.format("age: %d", member.getAge()));
+        });
     }
 }

@@ -1,13 +1,12 @@
 package example.domain.member;
 
+import domain.MemberType;
 import example.domain.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "member_id"))
@@ -18,6 +17,9 @@ public class Member extends BaseEntity {
 
     @Column(name = "age", nullable = false)
     private int age;
+
+    @Enumerated(EnumType.STRING)
+    private MemberType type;
 
     public Member(String name) {
         this.name = name;

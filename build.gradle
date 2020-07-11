@@ -46,9 +46,3 @@ subprojects {
         }
     }
 }
-
-project(':querydsl-admin') {
-    dependencies {
-        compile project(':querydsl-core')
-    }
-}

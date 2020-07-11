@@ -22,10 +22,18 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
     }
 
     @Override
-    public List<MemberDto> findMembersByAgeOver(int age) {
+    public List<MemberDto> findMembersOverAge(int age) {
         return jpaQueryFactory.select(Projections.fields(MemberDto.class, member.name, member.age))
                 .from(member)
                 .where(member.age.goe(age))
+                .fetch();
+    }
+
+    @Override
+    public List<MemberDto> findMembersOverAgeAndContainWord(int age, String word) {
+        return jpaQueryFactory.select(Projections.fields(MemberDto.class, member.name, member.age))
+                .from(member)
+                .where(member.age.goe(age).and(member.name.contains(word)))
                 .fetch();
     }
 }

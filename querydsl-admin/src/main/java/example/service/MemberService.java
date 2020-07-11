@@ -15,6 +15,6 @@ public class MemberService {
     }
 
     public List<MemberDto> showMembersOverAge(int age) {
-        return memberRepository.findMembersByAgeOver(age);
+        return memberRepository.findMembersOverAge(age);
     }
 }

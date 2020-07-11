@@ -4,8 +4,9 @@ jar { enabled = true }
 apply plugin: 'com.ewerk.gradle.plugins.querydsl'
 
 dependencies {
-    implementation 'com.querydsl:querydsl-jpa'
+    implementation project(path: ':querydsl-common', configuration: 'default')
 
+    implementation 'com.querydsl:querydsl-jpa'
     runtimeOnly 'com.h2database:h2'
 }
 
