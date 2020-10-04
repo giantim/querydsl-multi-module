@@ -4,10 +4,10 @@ jar { enabled = true }
 apply plugin: 'com.ewerk.gradle.plugins.querydsl'
 
 dependencies {
-    implementation project(path: ':querydsl-common', configuration: 'default')
+    compile project(path: ':querydsl-common', configuration: 'default')
 
-    implementation 'com.querydsl:querydsl-jpa'
-    runtimeOnly 'com.h2database:h2'
+    compile 'com.querydsl:querydsl-jpa'
+    runtimeOnly 'com.h2database:h2:1.4.199'
 }
 
 def querydslDir = "$buildDir/generated/querydsl" // QueryDSL 에서 필요한 QClass 가 생성되는 경로

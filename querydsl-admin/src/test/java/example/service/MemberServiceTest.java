@@ -24,4 +24,9 @@ public class MemberServiceTest {
             System.out.println(String.format("age: %d", member.getAge()));
         });
     }
+
+    @Test
+    void showMemberTest() {
+        memberService.showMember();
+    }
 }
