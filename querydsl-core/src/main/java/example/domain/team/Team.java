@@ -10,11 +10,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@AttributeOverride(name = "id", column = @Column(name = "team_id"))
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@AttributeOverride(name = "id", column = @Column(name = "team_id"))
+@Entity
 public class Team extends BaseEntity {
+
     private String name;
 
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
@@ -30,4 +31,13 @@ public class Team extends BaseEntity {
         }
         members.add(member);
     }
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    public void process() {
+        this.name += "new";
+    }
+
 }

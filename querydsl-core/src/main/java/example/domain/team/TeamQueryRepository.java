@@ -6,12 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface TeamRepository extends JpaRepository<Team, Long>, TeamRepositoryCustom {
+@Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
+public interface TeamQueryRepository extends JpaRepository<Team, Long> {
 
-    @Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
-    Team findByName(String name);
-
-//    @Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
     List<Team> findAllByIdIn(List<Long> ids);
 
 }
